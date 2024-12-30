@@ -2,17 +2,23 @@
 // pg 73
 
 const val HERO_NAME = "Madrigo"
-var playerLevel = 5
+var playerLevel = 0
 
 fun main() {
-    println("The hero announces his presence to the world.")
-    println(HERO_NAME)
-    println(playerLevel)
+    println("$HERO_NAME announces his presence to the world.")
+    println("What level is $HERO_NAME?")
+    val playerLevelInput = readln()
+    playerLevel = if (playerLevelInput.matches("""\d+""".toRegex())) {
+            playerLevelInput.toInt()
+    } else {
+        1
+    }
+    println("$HERO_NAME's level is $playerLevel.")
 
     readBountyBoard()
 
     println("Time passes...")
-    println("The hero returns from his quest.")
+    println("$HERO_NAME returns from his quest.")
 
     playerLevel += 1
     println(playerLevel)
@@ -20,8 +26,12 @@ fun main() {
 }
 
 private fun readBountyBoard() {
-    println("The hero approaches the bounty board. It reads:")
-    println(obtainQuest(playerLevel))
+    println(
+        """
+            $HERO_NAME approaches the bounty board. It reads:
+                "${obtainQuest(playerLevel).replace("[Nn]ogartse".toRegex(), "xxxxxxxx")}"
+        """.trimIndent()
+    )
 }
 
 private fun obtainQuest(
@@ -42,6 +52,7 @@ private fun obtainQuest(
                 "Save the town from the barbarian invasions."
             }
         }
+
 
         6 -> "Locate the enchanted sword."
         7 -> "Recover the long-lost artifact of creation."
