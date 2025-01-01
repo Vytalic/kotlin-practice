@@ -11,6 +11,7 @@ inline fun narrate(
     println(modifier(message))
 }
 
+
 fun changeNarratorMood() {
     val mood: String
     val modifier: (String) -> String
