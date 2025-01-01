@@ -1,4 +1,4 @@
-// pg 187 - SETS
+// pg 219 - flatMap
 
 var heroName: String = ""
 
