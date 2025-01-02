@@ -1,4 +1,4 @@
-// pg 219 - flatMap
+// Chapter 12
 
 var heroName: String = ""
 
