@@ -5,6 +5,7 @@ open class TownSquare : Room("The Town Square") {
     private var bellSound = "GWONG"
 
     final override fun enterRoom() {
+        narrate("\t(Currently: $status)")
         narrate("The villagers rally and cheer as the hero enters")
         ringBell()
     }
