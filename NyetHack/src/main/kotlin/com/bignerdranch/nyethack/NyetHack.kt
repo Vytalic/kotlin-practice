@@ -1,4 +1,4 @@
-// Chapter 15
+// Currently: Chapter 16
 package com.bignerdranch.nyethack
 
 lateinit var player: Player
@@ -9,11 +9,13 @@ fun main() {
     player = Player(playerName)
     //changeNarratorMood()
     player.prophesize()
-    val mortality = if (player.isImmortal) "an immortal" else "a mortal"
-    narrate("${player.name} of ${player.hometown}, ${player.title}, heads to the town square")
-    narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
 
-    visitTavern()
+    var currentRoom : Room = Tavern()
+    val mortality = if (player.isImmortal) "an immortal" else "a mortal"
+    narrate("${player.name} of ${player.hometown}, ${player.title}, is in ${currentRoom.description()}")
+    narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
+    currentRoom.enterRoom()
+
     player.castFireBall()
     player.prophesize()
 }
